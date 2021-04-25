@@ -6,3 +6,10 @@
 ### trader.py需要在selenium登入帳戶，因為需要結帳。app.py或者app-https.py僅僅接收第一個post（多了也沒用）
 #### If you're using anaconda, you need to activate an environment with flask and other modules.
 #### Modules used: BeautifulSoup4, Flask, json, re, requests and selenium.
+```
+# To make the script compatible with linux, the following steps shuold be done.
+# 1:
+sudo apt-get install xvfb
+# 2:
+pip install pyvirtualdisplay
+```

@@ -9,6 +9,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.common.by import By
 from bs4 import BeautifulSoup
+from pyvirtualdisplay import Display
 import requests
 import json
 import time
@@ -18,8 +19,10 @@ import time
 
 
 store = "https://24h.pchome.com.tw/store/DRADD4"
+display = Display(visible=0, size=(1366,768))
+display.start()
 options = webdriver.ChromeOptions()
-driver = webdriver.Chrome(executable_path='chromedriver.exe', chrome_options=options)
+driver = webdriver.Chrome(executable_path='/usr/local/bin/chromedriver', chrome_options=options)
 
 
 # In[8]:
@@ -73,6 +76,6 @@ while refresh:
 # In[11]:
 
 
-pchome = {'URL':new_url}
-res = requests.post('http://127.0.0.1:5000/getURL',data = json.dumps(pchome))
+#pchome = {'URL':new_url}
+#res = requests.post('http://127.0.0.1:5000/getURL',data = json.dumps(pchome))
 
