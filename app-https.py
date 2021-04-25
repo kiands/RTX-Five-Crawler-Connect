@@ -5,6 +5,11 @@ import trader
 
 app = Flask(__name__)
 
+@app.route('/start')
+def start():
+    trader.main(True)
+    return str('Started')
+
 @app.route('/hello')
 def hello():
     return jsonify(content="OK")

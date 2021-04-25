@@ -5,14 +5,22 @@ from selenium.webdriver.common.by import By
 import time
 
 def main(url):
-    trade(url)
+    if url == True:
+        start()
+    else:
+        trade(url)
 
-def trade(url):   
+options = None
+driver = None
+def start():
     # 設定此 option 可讓 chrome 記住已登入帳戶，成功後可以省去"#登入帳戶"的程式碼
+    global options
     options = webdriver.ChromeOptions()
-    options.add_argument(r"--user-data-dir=C:\\Users\\datalab\\AppData\\Local\\Google\\Chrome\\User Data\\Default")  # 可透過 chrome://version/ 找到
+    options.add_argument(r"--user-data-dir=C:\\Users\\Hexplode\\AppData\\Local\\Google\\Chrome\\User Data\\Default")  # 可透過chrome://version/ 找到
+    global driver
     driver = webdriver.Chrome(executable_path='chromedriver.exe', chrome_options=options)
-    
+
+def trade(url):
     driver.get(url)
     
     try:
